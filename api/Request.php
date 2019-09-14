@@ -5,6 +5,17 @@ class Request
     private $data;
     private $status;
     private $statusMessage;
+    private $dateTime;
+
+    /**
+     * @return mixed
+     */
+    public function getDateTime()
+    {
+        $date =  $this->dateTime;
+        $newDate = $date->format('Y-m-d');
+        return $newDate;
+    }
 
     /**
      * @return mixed
@@ -43,15 +54,15 @@ class Request
      * @param $data
      * @param null $status
      * @param null $statusMessage
+     * @throws Exception
      */
     public function __construct($data = NULL, $status = NULL, $statusMessage = NULL)
     {
         $this->data = $data;
         $this->status = $status;
         $this->statusMessage = $statusMessage;
+        $this->dateTime = new DateTime('now');
     }
-
-
     /**
      * @param mixed $data
      */
@@ -59,6 +70,7 @@ class Request
     {
         $this->data = $data;
     }
+    // service
     public function makeRequest()
     {
         $d = $this->data;
