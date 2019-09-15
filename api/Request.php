@@ -7,6 +7,32 @@ class Request
     private $statusMessage;
     private $dateTime;
 
+
+    /**
+     * Request constructor.
+     * @param $data
+     * @param null $status
+     * @param null $statusMessage
+     * @throws Exception
+     */
+    public function __construct($data = NULL, $status = NULL, $statusMessage = NULL)
+    {
+        $this->data = $data;
+        $this->status = $status;
+        $this->statusMessage = $statusMessage;
+        $this->dateTime = new DateTime('now');
+    }
+    /**
+     * @param mixed $data
+     */
+    public function setData($data): void
+    {
+        $this->data = $data;
+    }
+    public function getData()
+    {
+        return $this->data;
+    }
     /**
      * @return mixed
      */
@@ -47,40 +73,6 @@ class Request
     public function setStatusMessage($statusMessage): void
     {
         $this->statusMessage = $statusMessage;
-    }
-
-    /**
-     * Request constructor.
-     * @param $data
-     * @param null $status
-     * @param null $statusMessage
-     * @throws Exception
-     */
-    public function __construct($data = NULL, $status = NULL, $statusMessage = NULL)
-    {
-        $this->data = $data;
-        $this->status = $status;
-        $this->statusMessage = $statusMessage;
-        $this->dateTime = new DateTime('now');
-    }
-    /**
-     * @param mixed $data
-     */
-    public function setData($data): void
-    {
-        $this->data = $data;
-    }
-    // service
-    public function makeRequest()
-    {
-        $d = $this->data;
-        if(!empty($d)){
-            $this->setStatus(200);
-            $this->setStatusMessage("OK!");
-        }else{
-            $this->setStatus(404);
-            $this->setStatusMessage("Not found!");
-        }
     }
 
 
