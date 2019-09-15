@@ -44,7 +44,7 @@ class Request
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getStatus()
     {
@@ -60,7 +60,7 @@ class Request
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getStatusMessage()
     {

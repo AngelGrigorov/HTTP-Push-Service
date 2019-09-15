@@ -12,6 +12,7 @@ foreach ($files as $file) {
 
     // setting data
     $http->setData($str);
+
     require_once ('../api/appService.php');
 
     // making requests in custom web service
