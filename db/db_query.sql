@@ -1,0 +1,11 @@
+CREATE TABLE `results_requests` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`status` INT(11) NOT NULL DEFAULT '0',
+	`status_message` VARCHAR(50) NOT NULL DEFAULT '0',
+	`date_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf32_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=16
+;
